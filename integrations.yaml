@@ -1,0 +1,9 @@
+integrationsVersion: 1.0.0
+integrations:
+  - id: eramba
+    name: Eramba
+    type: GRC
+    status: stable
+    compatibility: ["1.0.0", "2.0.0"]
+    documentation: https://pkic.org/wg/pkimm/integrations/eramba/
+    summary: Converts the PKI MM model into an Eramba-importable CSV package (one row per requirement, grouped by category).

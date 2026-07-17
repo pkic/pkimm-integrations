@@ -1,0 +1,31 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "PKI MM Integrations manifest",
+  "version": "1.0.0",
+  "type": "object",
+  "required": ["integrationsVersion", "integrations"],
+  "additionalProperties": false,
+  "properties": {
+    "integrationsVersion": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" },
+    "integrations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "name", "type", "status", "compatibility", "documentation", "summary"],
+        "additionalProperties": false,
+        "properties": {
+          "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+          "name": { "type": "string" },
+          "type": { "type": "string" },
+          "status": { "type": "string", "enum": ["under-development", "release-candidate", "stable", "deprecated"] },
+          "compatibility": {
+            "type": "array", "minItems": 1,
+            "items": { "type": "string", "pattern": "^\\d+\\.\\d+\\.\\d+$" }
+          },
+          "documentation": { "type": "string", "pattern": "^https://" },
+          "summary": { "type": "string" }
+        }
+      }
+    }
+  }
+}
