@@ -46,7 +46,7 @@ def render_table(manifest: dict[str, Any], existing_date: str | None = None) -> 
     for i in manifest.get("integrations", []):
         badge = STATUS_BADGE.get(i["status"], i["status"])
         compat = ", ".join(i.get("compatibility", []))
-        lines.append(f"| [{_flatten(i['name'])}]({i['documentation']}) | {_flatten(i['type'])} | {badge} | {compat} | {_flatten(i['summary'])} |")
+        lines.append(f"| [{_flatten(i['name'])}](./{i['id']}/) | {_flatten(i['type'])} | {badge} | {compat} | {_flatten(i['summary'])} |")
     lines.append("")
     return "\n".join(lines)
 
