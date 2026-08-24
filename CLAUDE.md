@@ -1,3 +1,11 @@
+---
+# Not website content. This repository is mounted as Hugo content by pkic.org,
+# so the file needs an explicit exclusion to stay unpublished.
+build:
+  render: never
+  list: never
+---
+
 # CLAUDE.md
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
@@ -47,6 +55,7 @@ CI runs the checker on every PR/push; a stale generated artifact (source changed
 ## Conventions
 
 - All markdown uses Hugo-style YAML front matter (`date`, `title`, `weight`, `sideMenu`/`build` where relevant). Ordering is by `weight`.
+- `CLAUDE.md` and `README.md` are not website content: pkic.org mounts this repository as Hugo content, so both carry `build: render: never` / `list: never` front matter to stay unpublished. Keep those blocks in place.
 - **Status vocabulary** (kebab-case in YAML; title-case badge on the site): `under-development`, `release-candidate`, `stable`, `deprecated`.
 - Integration `id` is a stable kebab-case string (`^[a-z][a-z0-9-]*$`). **Never rename an integration `id` once published** — the folder name, manifest entry, and any downstream links depend on it.
 - Generated files (`_index.md`, and any integration's generated output artifact) are never hand-edited; the checker enforces this via regenerate-and-diff.
